@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,10 +31,12 @@ public class HelloController {
         return "hello2";
     }
     @GetMapping("/hello3")
-    public String getHello3(HttpServletRequest req, Model model){
+    public String getHello3(@RequestParam("name") String name,
+            @RequestParam("password") String password,
+                            Model model){ // HttpServletRequest req
         // read the provide form data
-        String name = req.getParameter("name");
-        String password = req.getParameter("password");
+//        String name = req.getParameter("name");
+//        String password = req.getParameter("password");
 
         if(password.equals("admin")) {
             String msg = "Hello " +name;
