@@ -14,5 +14,12 @@
     <!-- Provide support for component scanning -->
     <context:component-scan base-package="com.fluex404.controller"/>
 
+    <!-- Provide support conversion, formatting and validating -->
     <mvc:annotation-driven/>
+
+    <!-- Define Spring MVC view resolver -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
 </beans>
