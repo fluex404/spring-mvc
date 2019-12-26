@@ -15,5 +15,11 @@
     <a href="hello">Click here...</a><br/>
     <a href="hello1">Hello 1</a><br/>
     <a href="hello2">Hello 2</a><br/>
+
+    <form action="hello3" method="get">
+        <label>Username</label> : <input type="text" name="name"/><br/>
+        <label>Password</label> : <input type="password" name="password"><br/>
+        <input type="submit" name="submit">
+    </form>
 </body>
 </html>
