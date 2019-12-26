@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
-    <p>Welcome to the final</p>
+    <p>Welcome to the final</p><br/>
+    ${emp.name}<br/>
+    ${emp.password}
 </body>
 </html>

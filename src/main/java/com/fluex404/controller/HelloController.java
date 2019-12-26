@@ -1,12 +1,16 @@
 package com.fluex404.controller;
 
+import com.fluex404.model.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @Controller
 public class HelloController {
@@ -15,12 +19,19 @@ public class HelloController {
         return "index";
     }
     @RequestMapping("/hello")
-    public String redirect(){
+    public String redirect(Model model){
+
+        model.addAttribute("emp", new Employee());
+
         return "viewpage";
     }
     @RequestMapping("/helloagain")
-    public String display(){
-        return "final";
+    public String display(@Valid @ModelAttribute("emp") Employee e, BindingResult br){
+        if(br.hasErrors()) {
+            return "viewpage";
+        } else {
+            return "final";
+        }
     }
     @GetMapping("/hello1")
     public String getHello1(){

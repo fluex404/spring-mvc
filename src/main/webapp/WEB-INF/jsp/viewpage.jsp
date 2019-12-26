@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: fluex404
@@ -9,6 +10,11 @@
 <html>
 <body>
     <a href="helloagain">Hello Again</a>
-    <h3>${msg}</h3>
+    <form:form action="helloagain" modelAttribute="emp">
+        Username: <form:input path="name"/><br/>
+        Password: <form:input path="password"/>
+        <form:errors path="password" cssClass="error"/><br/><br/>
+        <input type="submit" value="submit"/>
+    </form:form>
 </body>
 </html>
