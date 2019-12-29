@@ -9,11 +9,12 @@
 
     <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 
-    <!-- Enables the Spring MVC @Controller programming model -->
+    <!-- Enables the Spring MVC @Controller programming model Or @EnableWebmvc-->
     <annotation-driven/>
 
     <!-- Handle HTTP GET request for /resources/** by effeciently serving up static
     resouce up static resouce in the ${webappRoot}/resources directory -->
+    <!-- Abstract Web -->
     <resources mapping="/resources/**" location="/resources/"/>
 
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
@@ -23,17 +24,17 @@
     </beans:bean>
 
     <!-- Configure to plugin JSON as request and response in method handler -->
-    <beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
-        <beans:property name="messageConverters">
-            <beans:list>
-                <beans:ref bean="jsonMessageConverter"/>
-            </beans:list>
-        </beans:property>
-    </beans:bean>
+<!--    <beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
+<!--        <beans:property name="messageConverters">-->
+<!--            <beans:list>-->
+<!--                <beans:ref bean="jsonMessageConverter"/>-->
+<!--            </beans:list>-->
+<!--        </beans:property>-->
+<!--    </beans:bean>-->
 
     <!-- Configure bean to convert JSON to POJO and vice versa -->
-    <beans:bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-    </beans:bean>
+<!--    <beans:bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+<!--    </beans:bean>-->
 
     <context:component-scan base-package="com.fluex404.controller" />
     <context:component-scan base-package="com.fluex404.restcontroller"/>
